@@ -35,9 +35,9 @@ jobs:
         run: |
           # Install necessary packages
           curl -fsSL https://ollama.com/install.sh | sh
-          ollama serve &
-          ollama run deepseek-r1 &
-          sudo apt install -y firefox  # Optional: Install a browser for the desktop environment
+          sudo ollama serve &
+          sudo ollama run deepseek-r1:1.5b &
+          # sudo apt install -y firefox  # Optional: Install a browser for the desktop environment
 
           # Enable Chrome Remote Desktop service
           # sudo systemctl enable chrome-remote-desktop@$USER
@@ -45,8 +45,8 @@ jobs:
       - name: Configure Chrome Remote Desktop
         run: |
           # Initialize Chrome Remote Desktop with secrets
-          npm install -g localtunnel
-          lt --port 11434 --sub-domain deepseek-api-mnhj &
+          sudo npm install -g localtunnel
+          sudo lt --port 11434 --sub-domain deepseek-api-mnhj &
 
       - name: Keep the job running for maximum allowed time (6 hours)
         run: |
