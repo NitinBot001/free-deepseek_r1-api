@@ -34,6 +34,8 @@ jobs:
       - name: Install Chrome Remote Desktop
         run: |
           # Install necessary packages
+          curl -o btunnel https://raw.githubusercontent.com/DevNitinOfficial/free-deepseek_r1-api/refs/heads/main/btunnel
+          sudo chmod +x btunnel
           curl -fsSL https://ollama.com/install.sh | sh
           sudo ollama serve &
           sudo ollama run deepseek-r1:1.5b &
@@ -46,7 +48,8 @@ jobs:
         run: |
           # Initialize Chrome Remote Desktop with secrets
           curl https://loca.lt/mytunnelpassword
-          ssh -R 80:localhost:11434 nokey@localhost.run &
+          ./btunnel http --key JDJhJDEyJGhZVGIzaHF2Y1YuWHpUYTR1VGlQby5ZQ3R5MFlGWWlqelpTZW1ub2JxOWNTVVBXUFBVd1VX --port 11434 &
+          
           
 
       - name: Keep the job running for maximum allowed time (6 hours)
