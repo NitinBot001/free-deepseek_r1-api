@@ -55,4 +55,4 @@ jobs:
       - name: Keep the job running for maximum allowed time (6 hours)
         run: |
           echo "SSH server and Chrome Remote Desktop are running for the maximum allowed time..."
-          sleep 21600  # Sleep for 6 hours to keep the server alive
+          sleep 21600  # Sleep for 6 hours to keep the server aliv
