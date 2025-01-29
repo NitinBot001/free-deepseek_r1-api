@@ -32,7 +32,7 @@ jobs:
       
       - name: Pull deepseek model
         run: |
-          curl -X POST http://localhost:11434/api/pull -d '{"name": "deepseek-r1:1.5b"}'
+          curl -X POST http://localhost:11434/api/pull -d '{"name": "deepseek-coder:1.5b"}'
           sleep 60  # Wait for model to download
       
       - name: Start localtunnel
